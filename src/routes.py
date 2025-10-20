@@ -33,3 +33,16 @@ def get_user(user_id):
         if u['id'] == user_id:
             return jsonify(u),200
     return jsonify({'error': 'Usuário não encontrado'}), 404
+
+
+#atualizar
+@users_bp.route('/users/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    data = request.get_json()
+    for u in users:
+        if u['id'] == user_id:
+            u['name'] = data.get('name', u['name'])
+            u['email'] = data.get('email', u['email'])
+            return jsonify({'message': 'Usuário atualizado com sucesso', 'user': u}), 200
+    return jsonify({'error': 'Usuário não encontrado'}), 404
+
