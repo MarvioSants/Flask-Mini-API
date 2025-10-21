@@ -35,7 +35,7 @@ def get_user(user_id):
     return jsonify({'error': 'Usuário não encontrado'}), 404
 
 
-#atualizar
+#atualizar(PUT)
 @users_bp.route('/users/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
     data = request.get_json()
@@ -46,3 +46,12 @@ def update_user(user_id):
             return jsonify({'message': 'Usuário atualizado com sucesso', 'user': u}), 200
     return jsonify({'error': 'Usuário não encontrado'}), 404
 
+#remover (DELETE)
+@users_bp.route('/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    global users
+    for u in users:
+        if u['id'] == user_id:
+            users.remove(u)
+            return jsonify({'message': f'Usuário {user_id} removido com sucesso'}), 200
+    return jsonify({'error': 'Usuário não encontrado'}), 404

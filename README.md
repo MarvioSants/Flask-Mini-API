@@ -11,6 +11,15 @@ python -m venv marvio
 source marvio/Script/activate                               
 pip install -r requirements.txt
 
+#adcionar usuário
 Invoke-WebRequest -Uri "http://127.0.0.1:5000/users" -Method POST -Body '{"name":"Marvio","email":"marvio@example.com"}' -ContentType "application/json"
+
+#editar usuario
+Invoke-WebRequest -Uri "http://127.0.0.1:5000/users/1" -Method PUT -Body '{"name":"Marvio Santos","email":"marvio.santos@example.com"}' -ContentType "application/json"
+
+#deletar usuário
+Invoke-WebRequest -Uri "http://127.0.0.1:5000/users/1" -Method DELETE
+
+
 
 
