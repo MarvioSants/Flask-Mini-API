@@ -1,5 +1,6 @@
 import requests
 
+
 class ExchangeService:
     def convert_currency(self, from_currency, to_currency, amount):
         url = f"https://api.exchangerate-api.com/v4/latest/{from_currency}"

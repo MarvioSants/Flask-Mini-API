@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from src.services.exchange_service import get_usd_to_brl
+from services.exchange_service import get_usd_to_brl
 
 exchange_bp = Blueprint("exchange", __name__)
 
