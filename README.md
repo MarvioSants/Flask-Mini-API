@@ -20,6 +20,9 @@ Invoke-WebRequest -Uri "http://127.0.0.1:5000/users/1" -Method PUT -Body '{"name
 #deletar usuário
 Invoke-WebRequest -Uri "http://127.0.0.1:5000/users/1" -Method DELETE
 
+#conversor
+http://127.0.0.1:5000/exchange/usd-to-brl?amount=10
+
 
 
 
